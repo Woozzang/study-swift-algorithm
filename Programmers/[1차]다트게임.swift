@@ -69,3 +69,4 @@ func solution(_ dartResult:String) -> Int {
   
   return scoreList.reduce(0, +)
 }
+ㅂ
