@@ -1,6 +1,8 @@
 import Foundation
 
 func solution() {
+  
+  //Memoization
   var list = Array(repeating: 0, count: 1001)
   let n = Int(readLine()!)!
   
@@ -13,6 +15,7 @@ func solution() {
       return 2
     }
     
+    //Memoization
     if list[cnt] != 0 {
       return list[cnt]
     }
