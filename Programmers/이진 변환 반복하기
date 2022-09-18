@@ -1,0 +1,18 @@
+import Foundation
+
+func solution(_ s:String) -> [Int] {
+    var convertCount = 0
+    var zeroCount = 0
+    var target = s
+    
+    while target != "1" {
+        
+        let zeros = target.filter { $0 == "0"}.count
+        zeroCount += zeros
+        
+        target = String(target.count - zeros, radix: 2)
+        convertCount += 1
+    }
+    
+    return [convertCount, zeroCount]
+}
