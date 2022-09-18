@@ -1,0 +1,15 @@
+func solution(_ s:String) -> String {
+    
+    let words = s.components(separatedBy: " ").map { [Character]($0.lowercased()) }
+    
+    return words.map {
+        
+        guard !$0.isEmpty else { return "" }
+        
+        var str = $0
+        
+        str[0] = Character(str[0].uppercased())
+        
+        return String(str)
+    }.joined(separator: " ")
+}
