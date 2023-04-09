@@ -1,3 +1,4 @@
+/// solution1
 import Foundation
 
 func one(_ str: String) -> Bool {
@@ -76,3 +77,57 @@ while let input = readLine() {
     print("<\(input)> is not acceptable.")
   }
 }
+
+/// solution2
+import Foundation
+
+func isVowel(_ char: Character) -> Bool {
+  char == "a" || char == "e" || char == "i" || char == "o" || char == "u"
+}
+/// 모음 : vowel
+/// 자음 : consonants
+func main() {
+  while true {
+    let str = readLine()!
+    if str == "end" { break }
+    var ccnt = 0; var vcnt = 0;
+    var flag = false
+    var isVowelIncluded = false
+    var prev: Character = " "
+    
+    for (index, char) in str.enumerated() {
+      if isVowel(char) {
+        vcnt += 1
+        ccnt = 0
+        isVowelIncluded = true
+      } else {
+        ccnt += 1
+        vcnt = 0
+      }
+      
+      if vcnt == 3 || ccnt == 3 {
+        flag = true
+        break
+      }
+      
+      if index > 0 && char == prev && (char != "e" && char != "o") {
+        flag = true
+      }
+      
+      prev = char
+    }
+    
+    if !isVowelIncluded {
+      flag = true
+    }
+    
+    if flag {
+      print("<\(str)> is not acceptable.")
+    } else {
+      print("<\(str)> is acceptable.")
+    }
+  }
+}
+
+main()
+
